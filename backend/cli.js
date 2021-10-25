@@ -27,12 +27,12 @@ import fs from "fs";
 // const data = await res.json(); // parse JSON in js object
 // console.log(data);
 
-
 const getRandomNumInRange = (minimum, maximum) => {
   return Math.floor(Math.random() * (maximum - minimum)) + minimum;
 };
 
-// get Top sales people as array
+// sort all people by sales top to the bottom 
+// afterwards merge sales person with new bonus field to new object
 const getTopSalesPerson = (arrSalesPeople) => {
   return {
     ...arrSalesPeople.sort((a, b) => b.salesInEuro - a.salesInEuro)[0],
@@ -84,9 +84,10 @@ const getApiDataAndSaveFormatted = async () => {
   // in the array, find the SalesPerson with the highest "salesInEuro" value
   const topSalesPerson = getTopSalesPerson(arrSalesPeople);
 
-  console.log(topSalesPerson);
+  //   console.log("top Sales Person" + topSalesPerson);
 
   const jsonTopSalesPerson = JSON.stringify(topSalesPerson); // convert object into JSON String
+//   console.log(jsonTopSalesPerson);
 
   try {
     fs.writeFileSync("./data/topsalesperson.json", jsonTopSalesPerson);
