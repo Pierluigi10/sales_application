@@ -26,6 +26,16 @@ const res = await fetch(API_URL); // Fetch to API
 const data = await res.json(); // parse JSON in js object
 console.log(data);
 
+
+
+
+const getRandomNumInRange = (minimum, maximum) => {
+    return Math.floor(Math.random() * (maximum - minimum)) + minimum;
+  };
+
+
+
+
 // data.forEach() // to want to loop through entries and make something for every entry
 // data.map() to make all entries in a NEW format
 
@@ -34,6 +44,7 @@ const arrSalesPeople = data.map((person) => {
     id: person.employeeID,
     firstName: person.firstName,
     lastName: person.lastName,
+    salesInEuro: getRandomNumInRange(100, 900)
   };
   return personFormatNew;
 });
