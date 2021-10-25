@@ -1,5 +1,5 @@
 function SalesComp(props) {
-  console.log("Sales: ", props.sales);
+//   console.log("Sales: ", props.sales);
 
   return (
     <div className="sales">
