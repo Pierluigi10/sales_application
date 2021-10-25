@@ -25,3 +25,31 @@ const API_URL =
 const res = await fetch(API_URL); // Fetch to API
 const data = await res.json(); // parse JSON in js object
 console.log(data);
+
+// data.forEach() // to want to loop through entries and make something for every entry
+// data.map() to make all entries in a NEW format
+
+const arrSalesPeople = data.map((person) => {
+  const personFormatNew = {
+    id: person.employeeID,
+    firstName: person.firstName,
+    lastName: person.lastName,
+  };
+  return personFormatNew;
+});
+
+console.log(arrSalesPeople);
+
+/* INPUT
+      "employeeID": 2,
+      "lastName": "Fuller",
+      "firstName": "Andrew",
+  */
+
+// Expected OUTPUT in file
+// [{
+//   "id": 8,
+//   "lastName": "Callahan",
+//   "firstName": "Laura",
+//   "salesInEuro": 365 => [100-900]
+// }]
