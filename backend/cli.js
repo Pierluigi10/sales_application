@@ -60,13 +60,13 @@ const getApiDataAndSaveFormatted = async () => {
   // we write binary or string data to file
 
   //   console.log("arrRes" + arrSalesPeople);
-  //   const jsonResult = JSON.stringify(arrSalesPeople);
+  const jsonResult = JSON.stringify(arrSalesPeople);
   //   console.log("jsonRes" + jsonResult);
   //   const resFileWrite = fs.writeFileSync("./data/salespeople.json", jsonResult);
   //   console.log(resFileWrite); //undefined
 
   try {
-    fs.writeFileSync("./data/topsalesperson.json", jsonTopSalesPerson);
+    fs.writeFileSync("./data/salespeople.json", jsonResult);
   } catch (err) {
     console.log(err);
   }
