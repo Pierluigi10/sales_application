@@ -1,7 +1,11 @@
 import express from "express";
 import fs from "fs";
+import cors from "cors";
 
 const app = express(); // create an API instance
+
+app.use(cors()); 
+
 
 app.get("/", (req, res) => {
   res.send({ message: "Hello from Sales API, D01" }); // sends DATA back to BROWSER
