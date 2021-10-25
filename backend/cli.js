@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 // CLI: API Data fetcher and  updater
 
 // fetch the data from the Northwind
