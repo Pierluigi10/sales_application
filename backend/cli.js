@@ -27,8 +27,17 @@ import fs from "fs";
 // const data = await res.json(); // parse JSON in js object
 // console.log(data);
 
+
 const getRandomNumInRange = (minimum, maximum) => {
   return Math.floor(Math.random() * (maximum - minimum)) + minimum;
+};
+
+// get Top sales people as array
+const getTopSalesPerson = (arrSalesPeople) => {
+  return {
+    ...arrSalesPeople.sort((a, b) => b.salesInEuro - a.salesInEuro)[0],
+    bonusInEuro: getRandomNumInRange(10, 25),
+  };
 };
 
 // get API data and convert to the format we want
@@ -67,6 +76,20 @@ const getApiDataAndSaveFormatted = async () => {
 
   try {
     fs.writeFileSync("./data/salespeople.json", jsonResult);
+  } catch (err) {
+    console.log(err);
+  }
+
+  // write TOP Sales people to FILE
+  // in the array, find the SalesPerson with the highest "salesInEuro" value
+  const topSalesPerson = getTopSalesPerson(arrSalesPeople);
+
+  console.log(topSalesPerson);
+
+  const jsonTopSalesPerson = JSON.stringify(topSalesPerson); // convert object into JSON String
+
+  try {
+    fs.writeFileSync("./data/topsalesperson.json", jsonTopSalesPerson);
   } catch (err) {
     console.log(err);
   }
