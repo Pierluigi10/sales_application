@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-// import TopSalesComp from "./component/TopsSalesComp";
-// import SalesComp from "./component/SalesComp";
+import TopSalesComp from "./component/TopsSalesComp";
+import SalesComp from "./component/SalesComp";
 import "./App.css";
 
 function App() {
@@ -15,20 +15,21 @@ function App() {
       const responsePersons = await fetch("http://localhost:5000/salespeople");
       const salesTemp = await responsePersons.json();
       setSales(salesTemp);
-      console.log(sales)
-      console.log(topSales)
     })();
   }, []);
 
   return (
     <div className="App">
       <h1>504 Frontend</h1>
-      <p>{sales}</p>
-      <p>{topSales}</p>
+      {topSales.data ? <TopSalesComp topSales={topSales.data} /> : "Loading..."}
+
+      {sales.length !== 0 ? (
+        <SalesComp sales={sales} />
+      ) : (
+        <p className="loading-message">{sales.message}</p>
+      )}
     </div>
   );
-
-
 }
 
 export default App;
