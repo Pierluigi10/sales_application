@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import fs from "fs";
 
 // CLI: API Data fetcher and  updater
 
@@ -41,6 +42,8 @@ const getApiDataAndSaveFormatted = async () => {
 
   // data.forEach() // to want to loop through entries and make something for every entry
   // data.map() to make all entries in a NEW format
+
+  // convert all sales people tho the format we want
   const arrSalesPeople = data.map((person) => {
     const personFormatNew = {
       id: person.employeeID,
@@ -51,7 +54,16 @@ const getApiDataAndSaveFormatted = async () => {
     return personFormatNew;
   });
 
-  console.log(arrSalesPeople);
+  //   console.log(arrSalesPeople);
+
+  // write all sales people to FILE
+  // we write binary or string data to file
+
+  //   console.log("arrRes" + arrSalesPeople);
+  const jsonResult = JSON.stringify(arrSalesPeople);
+  //   console.log("jsonRes" + jsonResult);
+  const resFileWrite = fs.writeFileSync("./data/salespeople.json", jsonResult);
+//   console.log(resFileWrite); //undefined
 };
 
 getApiDataAndSaveFormatted();
