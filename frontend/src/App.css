@@ -1,0 +1,76 @@
+/* MAIN APP */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #181818;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  margin: 30px 0;
+}
+
+.loading-message {
+  color: white;
+  font-size: 18px;
+  margin: 50px;
+}
+
+/* SALES COMPONENT */
+.top-sales {
+  border: solid 5px rgb(77, 77, 243);
+  width: 50vw;
+  background-color: rgb(181, 209, 245);
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.header-title {
+  color: rgb(148, 0, 0);
+  font-weight: bold;
+}
+
+.name-title {
+  font-size: 33px;
+  margin: 5px 0;
+}
+
+.sales-nums {
+  font-size: 22px;
+  margin: 2px 0 5px;
+}
+
+/* TOP SALES COMPONENT */
+.sales {
+  border: solid 5px rgb(77, 77, 243);
+  width: 50vw;
+  background-color: white;
+}
+
+.sales table,
+th,
+td {
+  background-color: rgb(77, 77, 243);
+  border-spacing: 2px;
+  border-collapse: separate;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  padding: 5px;
+  font-weight: bold;
+  text-align: left;
+}
+
+td {
+  background-color: white;
+  padding: 5px;
+}
